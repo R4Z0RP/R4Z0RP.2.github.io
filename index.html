@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Feliz Día del Padre — un regalo hecho con cariño." />
+<title>Feliz Día del Padre 🧡</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧡</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║  PRELOADER                                     ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="preloader" class="preloader">
+  <div class="preloader__inner">
+    <div class="preloader__orb">
+      <span class="preloader__sun"></span>
+      <span class="preloader__ring"></span>
+    </div>
+    <p class="preloader__text">Para el mejor papá del mundo</p>
+    <div class="preloader__bar"><span id="preloaderFill"></span></div>
+    <span class="preloader__pct" id="preloaderPct">0%</span>
+  </div>
+</div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress"><span id="scrollBar"></span></div>
+
+<!-- Custom cursor -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Film grain + FX canvas -->
+<div class="grain" aria-hidden="true"></div>
+<canvas id="fxCanvas" class="fx-canvas" aria-hidden="true"></canvas>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║  NAV — Fluid glass island                      ║
+     ╚══════════════════════════════════════════════╝ -->
+<header class="nav" id="nav">
+  <nav class="nav__pill">
+    <a href="#inicio" class="nav__brand" data-cursor>🧡</a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#inicio" data-cursor>Inicio</a></li>
+      <li><a href="#momentos" data-cursor>Momentos</a></li>
+      <li><a href="#razones" data-cursor>Razones</a></li>
+      <li><a href="#carta" data-cursor>Carta</a></li>
+      <li class="nav__links-cta"><a href="#abrazo" data-cursor>Un abrazo 🧡</a></li>
+    </ul>
+    <a href="#abrazo" class="nav__cta" data-cursor>
+      <span>Un abrazo</span>
+      <span class="nav__cta-icon">→</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  HERO                                        ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg" id="heroBg">
+      <img src="Imagenes/IMG-20250323-WA0123.png" alt="Papá frente al mar al atardecer formando un corazón con las manos" />
+    </div>
+    <div class="hero__overlay"></div>
+    <canvas id="heroCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+
+    <div class="hero__content">
+      <span class="eyebrow eyebrow--light reveal">Día del Padre · 2026</span>
+      <h1 class="hero__title">
+        <span class="line"><span class="word">Feliz</span></span>
+        <span class="line"><span class="word">Día del</span></span>
+        <span class="line"><span class="word hero__title-accent">Padre</span></span>
+      </h1>
+      <p class="hero__subtitle reveal">
+        Para el hombre que me enseñó que la vida se vive
+        con los brazos abiertos<br class="br-desktop" /> y el corazón aún más.
+      </p>
+      <a href="#dedicatoria" class="hero__scroll reveal" data-cursor data-magnetic>
+        <span class="hero__scroll-ring">
+          <span class="hero__scroll-arrow">↓</span>
+        </span>
+        <span class="hero__scroll-label">Desliza para recordar</span>
+      </a>
+    </div>
+
+    <div class="hero__signature reveal">Hecho con 🧡 solo para ti</div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  DEDICATORIA — opening line                  ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="dedicatoria" id="dedicatoria">
+    <div class="container">
+      <span class="eyebrow reveal">Una dedicatoria</span>
+      <p class="dedicatoria__lead reveal">
+        Hay personas que no necesitan hacer nada extraordinario
+        para serlo&nbsp;todo. <span class="hl">Tú eres una de ellas, papá.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  MOMENTOS — gallery                          ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="momentos" id="momentos">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Momentos</span>
+        <h2 class="section-title reveal">Instantes que guardo<br class="br-desktop" /> en el corazón</h2>
+        <p class="section-sub reveal">Cada foto es una historia; cada historia, un gracias.</p>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <figure class="g-item reveal" data-cursor data-caption="Cimas conquistadas, siempre contigo" data-place="Monserrate · Bogotá">
+          <div class="g-frame">
+            <img src="Imagenes/IMG-20250323-WA0019.jpg" alt="Papá y mamá abrazados frente a la iglesia de Monserrate" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Cimas conquistadas, siempre contigo</span>
+              <span class="g-cap__place">Monserrate · Bogotá</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+
+        <figure class="g-item reveal" data-cursor data-caption="Atardeceres que abrazan el alma" data-place="Frente al mar">
+          <div class="g-frame">
+            <img src="Imagenes/IMG-20250323-WA0123.png" alt="Papá al atardecer formando un corazón con las manos frente al sol" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Atardeceres que abrazan el alma</span>
+              <span class="g-cap__place">Frente al mar · Cartagena</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+
+        <figure class="g-item reveal" data-cursor data-caption="Alcanzando siempre lo imposible" data-place="Villa de Leyva · Boyacá">
+          <div class="g-frame">
+            <img src="Imagenes/IMG_20240831_122702.jpg" alt="Papá de pie sobre la escultura de una mano gigante con un paisaje de montañas" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Alcanzando siempre lo imposible</span>
+              <span class="g-cap__place">Raquira · Boyacá</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+
+        <figure class="g-item reveal" data-cursor data-caption="Esa sonrisa que lo ilumina todo" data-place="Buenos momentos">
+          <div class="g-frame">
+            <img src="Imagenes/IMG-20251104-WA0046.jpg" alt="Papá sonriendo en un restaurante a punto de probar un postre" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Esa sonrisa que lo ilumina todo</span>
+              <span class="g-cap__place">Los mejores momentos</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+
+        <figure class="g-item reveal" data-cursor data-caption="Brindando por la vida" data-place="Celebrando contigo">
+          <div class="g-frame">
+            <img src="Imagenes/IMG-20250902-WA0016.jpg" alt="Papá sonriendo junto a un pastel de cumpleaños" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Brindando por la vida</span>
+              <span class="g-cap__place">Celebrando contigo</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+
+        <figure class="g-item reveal" data-cursor data-caption="Elegancia y buen gusto" data-place="Una buena mesa">
+          <div class="g-frame">
+            <img src="Imagenes/IMG_20250906_152336_1.jpg" alt="Papá elegante con camisa negra en un restaurante" loading="lazy" />
+            <figcaption class="g-cap">
+              <span class="g-cap__title">Elegancia y buen gusto</span>
+              <span class="g-cap__place">Un gran almuerzo</span>
+            </figcaption>
+            <span class="g-zoom">⤢</span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  RAZONES — stats                             ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="razones" id="razones">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Sin medida</span>
+        <h2 class="section-title reveal">Lo que significas,<br class="br-desktop" /> en cifras que se quedan cortas</h2>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal" data-cursor>
+          <div class="stat__shell">
+            <div class="stat__core">
+              <span class="stat__num" data-symbol="∞">∞</span>
+              <span class="stat__label">Abrazos que lo arreglan todo</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <div class="stat__shell">
+            <div class="stat__core">
+              <span class="stat__num" data-count="365">0</span>
+              <span class="stat__label">Días al año cuidando de nosotros</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <div class="stat__shell">
+            <div class="stat__core">
+              <span class="stat__num" data-count="1000" data-suffix="+">0</span>
+              <span class="stat__label">Consejos que llevo conmigo</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <div class="stat__shell">
+            <div class="stat__core">
+              <span class="stat__num" data-symbol="#1">#1</span>
+              <span class="stat__label">El mejor papá del mundo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  CUALIDADES — qualities                      ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="cualidades">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Lo que admiro de ti</span>
+        <h2 class="section-title reveal">Lo que me enseñaste<br class="br-desktop" /> sin decir una palabra</h2>
+      </div>
+
+      <div class="qualities">
+        <article class="quality reveal" data-tilt data-cursor>
+          <div class="quality__shell">
+            <div class="quality__core">
+              <span class="quality__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 8 11v11c0 9.5 6.8 17.6 16 20 9.2-2.4 16-10.5 16-20V11L24 4Z"/><path d="m17 24 5 5 9-10"/></svg>
+              </span>
+              <h3 class="quality__title">Fortaleza</h3>
+              <p class="quality__text">Levantarte tantas veces como haga falta, siempre con la frente en alto.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="quality reveal" data-tilt data-cursor>
+          <div class="quality__shell">
+            <div class="quality__core">
+              <span class="quality__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M24 12C18 6 8 7 6 8v26c2-1 12-2 18 4 6-6 16-5 18-4V8c-2-1-12-2-18 4Z"/><path d="M24 12v26"/></svg>
+              </span>
+              <h3 class="quality__title">Sabiduría</h3>
+              <p class="quality__text">El consejo justo en el momento exacto, aunque a veces no lo quisiera escuchar.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="quality reveal" data-tilt data-cursor>
+          <div class="quality__shell">
+            <div class="quality__core">
+              <span class="quality__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M16 20h.02M32 20h.02"/><path d="M15 29c2.5 3.5 6 5 9 5s6.5-1.5 9-5"/></svg>
+              </span>
+              <h3 class="quality__title">Alegría</h3>
+              <p class="quality__text">Esa risa tuya que convierte un día cualquiera en un buen recuerdo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="quality reveal" data-tilt data-cursor>
+          <div class="quality__shell">
+            <div class="quality__core">
+              <span class="quality__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40S6 29 6 17.5C6 11 11 7 16.5 7 20 7 23 9 24 11c1-2 4-4 7.5-4C37 7 42 11 42 17.5 42 29 24 40 24 40Z"/></svg>
+              </span>
+              <h3 class="quality__title">Amor</h3>
+              <p class="quality__text">Querer sin condiciones y dar sin esperar jamás nada a cambio.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  CARTA — handwritten letter                  ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="carta" id="carta">
+    <div class="container container--narrow">
+      <div class="carta__paper reveal">
+        <div class="carta__shell">
+          <div class="carta__core">
+            <span class="eyebrow reveal">Una carta para ti</span>
+            <h2 class="carta__greeting reveal">Querido papá,</h2>
+            <div class="carta__body">
+              <p class="reveal">No sé muy bien por dónde empezar, así que empezaré por lo más simple: <strong>gracias</strong>. Gracias por cada madrugada, por cada esfuerzo silencioso, por enseñarme con el ejemplo lo que significa ser una buena persona.</p>
+              <p class="reveal">Crecí mirándote y, sin darme cuenta, te fuiste convirtiendo en mi medida de todo lo bueno: la paciencia, el trabajo, el buen humor y esa forma tan tuya de hacer que todo parezca posible.</p>
+              <p class="reveal">Hoy no tengo un regalo enorme entre las manos, pero sí tengo esto: un pedacito de internet hecho con cariño, solo para ti, para que nunca olvides lo importante que eres en mi vida.</p>
+              <p class="reveal">Te admiro. Te quiero. Y cada día doy gracias por tenerte como papá.</p>
+            </div>
+
+            <!-- ✏️ PERSONALIZA AQUÍ: cambia "tu hijo" por tu nombre (ej. "Santiago") -->
+            <div class="carta__sign reveal">
+              <span class="carta__sign-pre">Con todo mi amor,</span>
+              <span class="carta__sign-name">Santi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  ABRAZO — interactive                        ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="abrazo" id="abrazo" data-hearts>
+    <div class="container">
+      <span class="eyebrow eyebrow--light reveal">Un último detalle</span>
+      <h2 class="abrazo__title reveal">Te debo un abrazo</h2>
+      <p class="abrazo__text reveal" id="abrazoMsg">
+        Pero mientras llego, presiona el botón.<br class="br-desktop" /> Va con todo mi corazón.
+      </p>
+      <button class="btn-hug reveal" id="hugBtn" data-cursor data-magnetic>
+        <span class="btn-hug__label">Enviar un abrazo</span>
+        <span class="btn-hug__icon">🧡</span>
+      </button>
+      <p class="abrazo__counter reveal" id="hugCounter" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════════════════════════════╗
+       ║  CIERRE — closing                            ║
+       ╚════════════════════════════════════════════╝ -->
+  <section class="cierre" id="final">
+    <div class="cierre__marquee" aria-hidden="true">
+      <div class="cierre__track">
+        <span>Feliz Día del Padre&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+        <span>Feliz Día del Padre&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+        <span>Feliz Día del Padre&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+        <span>Feliz Día del Padre&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      </div>
+    </div>
+    <div class="container cierre__content">
+      <p class="cierre__kicker reveal">Y por si no te lo digo suficiente…</p>
+      <h2 class="cierre__title reveal">Te amo, papá.</h2>
+      <p class="cierre__date reveal">Feliz Día del Padre · 2026</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Hecho con 🧡 y un montón de recuerdos · 2026</p>
+</footer>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║  LIGHTBOX                                      ║
+     ╚══════════════════════════════════════════════╝ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lbClose" aria-label="Cerrar" data-cursor>✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Anterior" data-cursor>‹</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Siguiente" data-cursor>›</button>
+  <figure class="lightbox__figure">
+    <img id="lbImg" src="" alt="" />
+    <figcaption class="lightbox__cap">
+      <span id="lbTitle"></span>
+      <span id="lbPlace"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
